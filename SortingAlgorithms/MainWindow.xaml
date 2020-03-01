@@ -1,0 +1,30 @@
+﻿<Window x:Class="SortingAlgorithms.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SortingAlgorithms"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="MainWindow" Height="600" Width="1000" Background="CadetBlue">
+    <Grid>
+        <Canvas x:Name="canvas" HorizontalAlignment="Left" Height="460" Margin="230,42,0,0" VerticalAlignment="Top" Width="715"/>
+        <Button x:Name="sort_button" Content="Sort" HorizontalAlignment="Left" Margin="80,310,0,0" VerticalAlignment="Top" Width="75" Click="Sort_button_Click"/>
+        <ComboBox x:Name="sort_comboBox" SelectionChanged="sort_comboBox_SelectionChanged" HorizontalAlignment="Left" Margin="47,238,0,0" VerticalAlignment="Top" Width="120">
+            <ComboBoxItem Content="Bubble Sort" HorizontalAlignment="Left" Width="118.4"/>
+            <ComboBoxItem Content="Selection Sort" HorizontalAlignment="Left" Width="118.4"/>
+            <ComboBoxItem Content="Insertion Sort" HorizontalAlignment="Left" Width="118.4"/>
+            <ComboBoxItem Content="QuickSort" HorizontalAlignment="Left" Width="118.4"/>
+            <ComboBoxItem Content="Heap Sort" HorizontalAlignment="Left" Width="118.5"/>
+        </ComboBox>
+        <Label x:Name="label" Content="Elements:" HorizontalAlignment="Left" Margin="54,141,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="num_elements_textBox" Text="500" HorizontalAlignment="Left" Height="23" Margin="122,144,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextChanged="Num_elements_textBox_TextChanged" Width="32"/>
+        <Button x:Name="Reset_button" Content="Reset" HorizontalAlignment="Left" Margin="80,334,0,0" VerticalAlignment="Top" Width="75" Click="Reset_button_Click"/>
+        <Label x:Name="label1" Content="Delay (ms):" HorizontalAlignment="Left" Margin="47,172,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="Delay_textBox" HorizontalAlignment="Left" Text="10" Height="23" Margin="122,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="32"/>
+        <Label x:Name="label2" Content="Sorting Algorithm Visualizer" HorizontalAlignment="Left" Margin="314,12,0,0" VerticalAlignment="Top" FontSize="30"/>
+        <Label x:Name="label3" Content="Time Complexity:" HorizontalAlignment="Left" Margin="14,203,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="timeComplexity_label"  HorizontalAlignment="Left" Margin="117,203,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>
