@@ -104,7 +104,7 @@ namespace SortingAlgorithms
             {
                 for (int j = 0; j < values.Length; j++)
                 {
-                    await Task.Delay(50);
+                    await Task.Delay(10);
                     canvas.Children.Clear();
                     Draw();
                 }

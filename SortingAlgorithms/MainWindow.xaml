@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:SortingAlgorithms"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="MainWindow" Height="600" Width="1000" Background="CadetBlue">
+        Title="Sorting Algorithm Visualizer" Height="600" Width="1000" Background="CadetBlue">
     <Grid>
         <Canvas x:Name="canvas" HorizontalAlignment="Left" Height="460" Margin="230,42,0,0" VerticalAlignment="Top" Width="715"/>
         <Button x:Name="sort_button" Content="Sort" HorizontalAlignment="Left" Margin="80,310,0,0" VerticalAlignment="Top" Width="75" Click="Sort_button_Click"/>
