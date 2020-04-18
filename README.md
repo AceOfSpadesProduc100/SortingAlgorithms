@@ -6,4 +6,4 @@ Implemented Quick Sort, Merge Sort, Bubble Sort, Insertion Sort, and Selection S
 ![](sort.gif)
 
 
-![](sort2.gif)
+![](gif2.gif)
