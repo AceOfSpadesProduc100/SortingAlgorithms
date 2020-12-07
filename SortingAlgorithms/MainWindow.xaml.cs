@@ -157,7 +157,7 @@ namespace SortingAlgorithms
             else
             {
                 ComboBoxItem typeItem = (ComboBoxItem)sort_comboBox.SelectedItem;
-                 sort = typeItem.Content.ToString();
+                sort = typeItem.Content.ToString();
             }
 
             return sort;

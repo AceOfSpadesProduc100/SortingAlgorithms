@@ -9,7 +9,7 @@ namespace SortingAlgorithms
     public class SortAlgorithms
     {
 
-        public static async void BubbleSort(int[] values, int delay)
+        public static async Task BubbleSort(int[] values, int delay)
         {
             int temp = 0;
             for (int i = 0; i < values.Length; i++)
@@ -19,7 +19,7 @@ namespace SortingAlgorithms
                     await Task.Delay(delay);
                     if (values[j] > values[j + 1])
                     {
-                        temp = values[j + 1];
+                        temp = values[j + 1]; 
                         values[j + 1] = values[j];
                         values[j] = temp;
                     }
@@ -27,7 +27,7 @@ namespace SortingAlgorithms
             }
         }
 
-        public async static void SelectionSort(int[] values, int delay)
+        public async static Task SelectionSort(int[] values, int delay)
         {
             for (int i = 0; i < values.Length - 1; i++)
             {
@@ -47,7 +47,7 @@ namespace SortingAlgorithms
             }
         }
 
-        public static async void InsertionSort(int[] values, int delay)
+        public static async Task InsertionSort(int[] values, int delay)
         {
             int n = values.Length;
             for (int i = 1; i < n; ++i)
@@ -65,7 +65,7 @@ namespace SortingAlgorithms
             }
         }
 
-        public async static void QuickSort(int[] values, int start, int end, int delay)
+        public async static Task QuickSort(int[] values, int start, int end, int delay)
         {
 
             if (start < end)
@@ -101,7 +101,7 @@ namespace SortingAlgorithms
             return i + 1;
         }
 
-        public static async void HeapSort(int[] arr, int delay)
+        public static async Task HeapSort(int[] arr, int delay)
         {
             int n = arr.Length;
 
