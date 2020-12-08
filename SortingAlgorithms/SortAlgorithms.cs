@@ -136,9 +136,9 @@ namespace SortingAlgorithms
 
             if (largest != i)
             {
-                int swap = arr[i];
+                int temp = arr[i];
                 arr[i] = arr[largest];
-                arr[largest] = swap;
+                arr[largest] = temp;
 
                 Heapify(arr, n, largest);
             }
