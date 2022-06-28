@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SortingAlgorithms
+﻿namespace AlgoWPF
 {
     public static class SortingConstants
     {
@@ -13,9 +7,6 @@ namespace SortingAlgorithms
         public const string insertionSort = "Insertion Sort";
         public const string quickSort = "QuickSort";
         public const string heapSort = "Heap Sort";
-
-        public const string bigOnSquared = "θ(n^2)";
-        public const string bigOlogN = "θ(nlog(n))";
 
     }
 }
