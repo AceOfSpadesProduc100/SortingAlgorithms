@@ -24,19 +24,11 @@ namespace AlgoWPF
             get
             {
                 Sort.reads++;
-                if (MainWindow.myWindow != null)
-                {
-                    Thread.Sleep((int)MainWindow.myWindow.Delay.Value);
-                }
                 return _value == 0 ? MIN_VALUE : _value; // Treat the default, 0, as being the minimum value.
             }
             set
             {
                 Sort.writes++;
-                if (MainWindow.myWindow != null)
-                {
-                    Thread.Sleep((int)MainWindow.myWindow.Delay.Value);
-                }
                 _value = value;
             }
         }
@@ -202,22 +194,6 @@ namespace AlgoWPF
             Sort.comparisons++;
             return left.Value <= right.Value;
         }
-
-        /*ArrayInt[] _array = new ArrayInt[int.MaxValue];
-
-        ArrayInt this[int index]
-        {
-            get
-            {
-                Sort.reads++;
-                return _array[index];
-            }
-            set
-            {
-                Sort.writes++;
-                _array[index] = value;
-            }
-        }*/
 
         public static bool operator >=(ArrayInt left, ArrayInt right)
         {

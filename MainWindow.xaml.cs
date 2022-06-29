@@ -9,6 +9,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
 using System.Windows.Media;
 using System.Windows.Shapes;
 using System.Windows.Threading;
@@ -28,6 +29,18 @@ namespace AlgoWPF
         public MainWindow()
         {
             InitializeComponent();
+            Binding readvals = new();
+            readvals.Source = Sort.reads;
+            ReadsText.SetBinding(TextBlock.TextProperty, readvals);
+            Binding compvals = new();
+            compvals.Source = Sort.comparisons;
+            CompsText.SetBinding(TextBlock.TextProperty, compvals);
+            Binding icmpvals = new();
+            icmpvals.Source = Sort.icmps;
+            ICmprText.SetBinding(TextBlock.TextProperty, compvals);
+            Binding writevals = new();
+            writevals.Source = Sort.comparisons;
+            WritesText.SetBinding(TextBlock.TextProperty, writevals);
             Setup();
             Draw();
             myWindow = this;
@@ -110,31 +123,21 @@ namespace AlgoWPF
         }
 
         // Gets the type of sort and loops through sorting the lines
-        private void Sort_button_Click(object sender, RoutedEventArgs e)
+        private async void Sort_button_Click(object sender, RoutedEventArgs e)
         {
             GetSortSelection();
             
-        }
 
-        private async Task DrawCycle()
-        {
-            running = true;
-            await Task.Run(() =>
+            //running = true;
+            while (true)
             {
-                while (running)
-                {
-                    Dispatcher.Invoke(() =>
-                    {
-                        
-                        canvas.Children.Clear();
-                        Draw();
-                        
-                    });
-                }
+                await Task.Delay(50);
+                canvas.Children.Clear();
+                Draw();
             }
-            );
             
         }
+
         // Gets the sort that the user selects 
         private void GetSortSelection()
         {
@@ -151,7 +154,6 @@ namespace AlgoWPF
                 default:
                     break;
             }
-            running = false;
             sort_button.IsEnabled = true;
         }
 

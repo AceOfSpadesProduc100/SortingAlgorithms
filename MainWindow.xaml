@@ -22,7 +22,7 @@
         <Label Content="Comparisons:" HorizontalAlignment="Left" Margin="47,50,0,0" VerticalAlignment="Top"/>
         <Label Content="IComparer cmps:" HorizontalAlignment="Left" Margin="48,76,0,0" VerticalAlignment="Top"/>
         <TextBlock x:Name="ICmprText" HorizontalAlignment="Left" Margin="153,81,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top"/>
-        <TextBlock x:Name="CmpText" HorizontalAlignment="Left" Margin="153,55,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top"/>
+        <TextBlock x:Name="CompsText" HorizontalAlignment="Left" Margin="153,55,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top"/>
         <Label Content="Wrties (appx):" HorizontalAlignment="Left" Margin="48,102,0,0" VerticalAlignment="Top"/>
         <TextBlock x:Name="WritesText" HorizontalAlignment="Left" Margin="153,107,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top"/>
         <TextBlock x:Name="ReadsText" HorizontalAlignment="Left" Margin="153,29,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top"/>
