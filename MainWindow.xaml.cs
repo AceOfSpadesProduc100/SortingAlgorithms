@@ -29,17 +29,25 @@ namespace AlgoWPF
         public MainWindow()
         {
             InitializeComponent();
-            Binding readvals = new();
-            readvals.Source = Sort.reads;
+            Binding readvals = new()
+            {
+                Source = Sort.reads
+            };
             ReadsText.SetBinding(TextBlock.TextProperty, readvals);
-            Binding compvals = new();
-            compvals.Source = Sort.comparisons;
+            Binding compvals = new()
+            {
+                Source = Sort.comparisons
+            };
             CompsText.SetBinding(TextBlock.TextProperty, compvals);
-            Binding icmpvals = new();
-            icmpvals.Source = Sort.icmps;
-            ICmprText.SetBinding(TextBlock.TextProperty, compvals);
-            Binding writevals = new();
-            writevals.Source = Sort.comparisons;
+            Binding icmpvals = new()
+            {
+                Source = Sort.icmps
+            };
+            ICmprText.SetBinding(TextBlock.TextProperty, icmpvals);
+            Binding writevals = new()
+            {
+                Source = Sort.comparisons
+            };
             WritesText.SetBinding(TextBlock.TextProperty, writevals);
             Setup();
             Draw();
@@ -122,19 +130,30 @@ namespace AlgoWPF
             canvas.Children.Add(line);
         }
 
+        public void OnRead(object sender, AccessEventArgs e)
+        {
+            if (sender == values)
+            {
+                Task.Delay(1);
+                canvas.Children.Clear();
+                Draw();
+            }
+        }
+
         // Gets the type of sort and loops through sorting the lines
-        private async void Sort_button_Click(object sender, RoutedEventArgs e)
+        private void Sort_button_Click(object sender, RoutedEventArgs e)
         {
             GetSortSelection();
             
 
-            //running = true;
+            /*//running = true;
             while (true)
             {
-                await Task.Delay(50);
+                await Task.Delay(1);
                 canvas.Children.Clear();
                 Draw();
-            }
+                if (running == false) break;
+            }*/
             
         }
 
@@ -142,6 +161,7 @@ namespace AlgoWPF
         private void GetSortSelection()
         {
             sort_button.IsEnabled = false;
+            running = true;
             string sort = GetComboBoxItem();
 
             //_ = DrawCycle();
@@ -155,6 +175,7 @@ namespace AlgoWPF
                     break;
             }
             sort_button.IsEnabled = true;
+            running = false;
         }
 
         // Returns the sort that the user selects 

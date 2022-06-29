@@ -1,11 +1,27 @@
 ﻿using System;
 using System.Globalization;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
 namespace AlgoWPF
 {
+
+    public delegate void AccessHandler(object source, EventArgs e);
+
+    public class AccessEventArgs : EventArgs
+    {
+        private readonly string EventInfo;
+        public AccessEventArgs(string Text)
+        {
+            EventInfo = Text;
+        }
+        public string GetInfo()
+        {
+            return EventInfo;
+        }
+    }
     public struct ArrayInt : IComparable, IComparable<ArrayInt>, IConvertible, IEquatable<ArrayInt>, IFormattable
     {
         private const int MIN_VALUE = int.MinValue;
@@ -13,17 +29,16 @@ namespace AlgoWPF
 
         public static readonly ArrayInt MinValue = new(MIN_VALUE);
         public static readonly ArrayInt MaxValue = new(MAX_VALUE);
-        private static bool IsValidValue(int value)
-        {
-            return value is >= MIN_VALUE and <= MAX_VALUE;
-        }
 
         private int _value;
+
+        public event AccessHandler OnRead;
         public int Value
         {
             get
             {
                 Sort.reads++;
+                OnRead?.Invoke(this, new AccessEventArgs("Array access"));
                 return _value == 0 ? MIN_VALUE : _value; // Treat the default, 0, as being the minimum value.
             }
             set
@@ -35,11 +50,7 @@ namespace AlgoWPF
 
         public ArrayInt(int value)
         {
-            if (!IsValidValue(value))
-            {
-                throw new ArgumentOutOfRangeException(nameof(value), value, $"Value must be between {MIN_VALUE} and {MAX_VALUE}.");
-            }
-
+            OnRead = null;
             _value = value;
         }
 
@@ -273,7 +284,7 @@ namespace AlgoWPF
 
         public static implicit operator ArrayInt(int value)
         {
-            return !IsValidValue(value) ? throw new OverflowException() : new ArrayInt(value);
+            return new ArrayInt(value);
         }
 
         #endregion
